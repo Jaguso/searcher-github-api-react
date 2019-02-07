@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-
 import { getUsers } from '../../services';
 
 class Users extends Component {
