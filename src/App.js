@@ -2,15 +2,13 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
-import Users from './components/users/Users';
-
+import Routes from './Routes';
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <p>Random title</p>
-        <Users />
+        <Routes/>
       </div>
     );
   }
