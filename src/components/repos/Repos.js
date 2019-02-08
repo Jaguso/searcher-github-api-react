@@ -24,13 +24,13 @@ class Repos extends Component {
     return(
       <div>
         <h3>These are the repositories</h3>
-        <ul>
+        <ol>
           {this.state.repos.map(repo => (
             <li>
               {repo.description}
             </li>
           ))}
-        </ul>
+        </ol>
       </div>
     );
   }

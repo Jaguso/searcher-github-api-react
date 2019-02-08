@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
 
 import Users from './components/users/Users';
 import Repos from './components/repos/Repos';
+import SearchList from './components/searchList/SearchList';
 
 class Routes extends Component {
   render() {
@@ -11,6 +12,7 @@ class Routes extends Component {
         <div>
           <Route exact path="/" component={Users}/>
           <Route exact path="/repos" component={Repos}/>
+          <Route exact path="/search" component={SearchList} />
         </div>
       </Router>
     );

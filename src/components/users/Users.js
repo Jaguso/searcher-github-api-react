@@ -19,7 +19,7 @@ class Users extends Component {
     })
   }
 
-  render(){
+  render() {
     return(
       <div>
         <h3>Users</h3>
