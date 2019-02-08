@@ -30,19 +30,27 @@ class Users extends Component {
 
   render() {
 
-    let names = this.state.users.map(user => user.login)
+    let users = this.state.users.map(element => {
+      return {name: element.login, data: element}
+    });
+
+    let filteredUsers = users.filter(user => {
+      return user.name.indexOf(this.state.search) !== -1
+    });
+
+    // let names = this.state.users.map(user => user.login)
     
-    let filteredUsers = names.filter(
-      (name) => {
-        return name.indexOf(this.state.search) !== -1;
-      }
-    );
+    // let filteredUsers = names.filter(
+    //   (name) => {
+    //     return name.indexOf(this.state.search) !== -1;
+    //   }
+    // );
 
     return(
       <div>
         <h3>Users</h3>
           <label>
-            Buscar un usuario
+            Buscar un usuario:
             <input 
               type="text"
               name="search"
@@ -52,7 +60,10 @@ class Users extends Component {
           <ul>
             {filteredUsers.map(user => (
               <li>
-                {user}
+                  {/* {user.name} */}
+                  {user.data.login}
+                  {user.data.id}
+                  {user.data.node_id}
               </li>
             ))}
           </ul>
