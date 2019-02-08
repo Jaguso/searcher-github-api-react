@@ -6,7 +6,8 @@ class Users extends Component {
   constructor() {
     super();
     this.state = {
-      users: []
+      users: [],
+      search: ""
     }
   }
 
@@ -19,14 +20,39 @@ class Users extends Component {
     })
   }
 
+  onChangeInput = (event) => {
+    const {name, value} = event.target
+
+    console.log("evento: ", event);
+    console.log("valores: ", name, value);
+    this.setState({[name]: value})
+  }
+
   render() {
+
+    let names = this.state.users.map(user => user.login)
+    
+    let filteredUsers = names.filter(
+      (name) => {
+        return name.indexOf(this.state.search) !== -1;
+      }
+    );
+
     return(
       <div>
         <h3>Users</h3>
+          <label>
+            Buscar un usuario
+            <input 
+              type="text"
+              name="search"
+              onChange={this.onChangeInput}
+            />
+          </label>
           <ul>
-            {this.state.users.map(user => (
+            {filteredUsers.map(user => (
               <li>
-                {user.login}
+                {user}
               </li>
             ))}
           </ul>
@@ -38,4 +64,4 @@ class Users extends Component {
   }
 }
 
-export default Users
+export default Users;
