@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Card from '../card/Card';
 import { getUsers } from '../../services';
 
 class Users extends Component {
@@ -38,35 +39,30 @@ class Users extends Component {
       return user.name.indexOf(this.state.search) !== -1
     });
 
-    // let names = this.state.users.map(user => user.login)
-    
-    // let filteredUsers = names.filter(
-    //   (name) => {
-    //     return name.indexOf(this.state.search) !== -1;
-    //   }
-    // );
-
     return(
-      <div>
-        <h3>Users</h3>
-          <label>
-            Buscar un usuario:
-            <input 
-              type="text"
-              name="search"
-              onChange={this.onChangeInput}
-            />
-          </label>
-          <ul>
+      <div className="container">
+        <h3 className="my-4">Usuarios</h3>
+          <div className="form-grup">
+            <label >
+              Busca un usuario:
+              <input 
+                type="text"
+                name="search"
+                onChange={this.onChangeInput}
+                className="form-control"
+              />
+            </label>
+          </div>
+          <div className="row">
             {filteredUsers.map(user => (
-              <li>
-                  {/* {user.name} */}
-                  {user.data.login}
-                  {user.data.id}
-                  {user.data.node_id}
-              </li>
+              <Card 
+                login={user.data.login}
+                id={user.data.id}
+                node_id={user.data.node_id}
+                url={user.data.url}
+              />
             ))}
-          </ul>
+          </div>
         
           
       </div>
