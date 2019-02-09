@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Card from '../card/Card';
+import CardUser from '../cards/CardUser';
 import { getUsers } from '../../services';
 
 class Users extends Component {
@@ -41,7 +41,7 @@ class Users extends Component {
 
     return(
       <div className="container">
-        <h3 className="my-4">Usuarios</h3>
+        <h3 className="my-">Usuarios</h3>
           <div className="form-grup">
             <label >
               Busca un usuario:
@@ -55,11 +55,9 @@ class Users extends Component {
           </div>
           <div className="row">
             {filteredUsers.map(user => (
-              <Card 
+              <CardUser 
                 login={user.data.login}
-                id={user.data.id}
-                node_id={user.data.node_id}
-                url={user.data.url}
+                html_url={user.data.html_url}
               />
             ))}
           </div>
