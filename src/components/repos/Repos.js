@@ -22,21 +22,20 @@ class Repos extends Component {
     })
   }
 
-  // onChangeInput = (event) => {
-  //   const {name, value} = event.target
+  onChangeInput = (event) => {
+    const {name, value} = event.target
 
-  //   console.log("evento: ", event);
-  //   console.log("valores: ", name, value);
-  //   this.setState({[name]: value})
-  // }
+    console.log("evento: ", event);
+    console.log("valores: ", name, value);
+    this.setState({[name]: value})
+  }
 
   render() {
     return(
       <div className="container">
-        <ul className="nav navbar-nav d-inline-flex">
-          <li className="nav-item"><h3>Repositorios</h3></li>
-          <li><a href="/">Regresar a usuarios</a></li>
-        </ul>
+        <h3>Repositorios de {this.state.user}</h3>
+        <a href="/">Regresar a usuarios</a>
+        
         {
           this.state.repos.map(repo => (
             <CardRepo
@@ -46,15 +45,6 @@ class Repos extends Component {
             />
           ))
         }
-        {/* <ol className="list-group">
-          {this.state.repos.map(repo => (
-            <li className="list-group-item list-group-item-action" key={repo.id}>
-              <a href={repo.html_url}>
-                {repo.name}
-              </a>
-            </li>
-          ))}
-        </ol> */}
       </div>
     );
   }

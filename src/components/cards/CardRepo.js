@@ -6,8 +6,7 @@ class CardRepo extends Component {
       <div className="col-12">
         <div className="card h-100">
           <div className="card-body">
-            <p>Username: {this.props.username}</p>
-            <p>{this.props.name}</p>
+            <p>Nombre del repositorio: {this.props.name}</p>
             <a href={this.props.url}><p>{this.props.url}</p></a>
           </div>
 
