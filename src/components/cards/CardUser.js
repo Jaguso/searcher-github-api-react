@@ -2,6 +2,13 @@ import React, { Component } from 'react';
 
 class CardUser extends Component {
 
+  // constructor(props) {
+  //   super(props)
+  //   this.state = {
+  //     repos: props.repos
+  //   }
+  // }
+
   render () {
 
     return (
@@ -13,7 +20,7 @@ class CardUser extends Component {
               Username: <a href={this.props.html_url}>{this.props.login}</a>
             </h5>
             <a href={this.props.html_url} className="card-link">Cuenta de github</a>
-            <a href="/repos" className="card-link">Ver repositorios</a>
+            <a href={`/repos/${this.props.login}`} className="card-link">Ver repositorios</a>
           </div>
         </div>
        
