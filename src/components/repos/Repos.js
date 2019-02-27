@@ -4,15 +4,16 @@ import './Repos.css';
 
 class Repos extends Component {
 
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
-      repos: []
+      repos: [],
+      user: props.match.params.user
     }
   }
 
   componentDidMount() {
-    getRepos().then((response) => {
+    getRepos(this.state.user).then((response) => {
       this.setState({
         repos: response.data
       })
@@ -31,7 +32,7 @@ class Repos extends Component {
         <ol className="list-group">
           {this.state.repos.map(repo => (
             <li className="list-group-item list-group-item-action">
-              {repo.description}
+              {repo.name}
             </li>
           ))}
         </ol>
