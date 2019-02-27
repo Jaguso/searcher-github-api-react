@@ -9,7 +9,8 @@ class Repos extends Component {
     super(props);
     this.state = {
       repos: [],
-      user: props.match.params.user //prps.match.params.user necesita usar el parametro definido en el servicio
+      user: props.match.params.user, //prps.match.params.user necesita usar el parametro definido en el servicio
+      searchRepos: ""
     }
   }
 
@@ -31,13 +32,31 @@ class Repos extends Component {
   }
 
   render() {
+
+    let filteredRepos = this.state.repos.filter(repo => {
+      return repo.name.indexOf(this.state.searchRepos) !== -1
+    });
+
     return(
       <div className="container">
-        <h3>Repositorios de {this.state.user}</h3>
+        <h3>Repositorios</h3>
         <a href="/">Regresar a usuarios</a>
+        <div className="form-group">
+          <label>
+            Busca un repositorio de {this.state.user}
+            <input
+              type="text"
+              name="searchRepos"
+              onChange={this.onChangeInput}
+              className="form-control"
+            />
+          </label>
+
+        </div>
+
         
         {
-          this.state.repos.map(repo => (
+          filteredRepos.map(repo => (
             <CardRepo
               name={repo.name}
               url={repo.html_url}
