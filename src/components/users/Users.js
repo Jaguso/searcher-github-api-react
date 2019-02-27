@@ -59,7 +59,6 @@ class Users extends Component {
                 login={user.data.login}
                 html_url={user.data.html_url}
                 avatar={user.data.avatar_url}
-                // repos={user.data.repos_url}
               />
             ))}
           </div>

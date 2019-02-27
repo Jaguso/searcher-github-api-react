@@ -8,7 +8,7 @@ class Repos extends Component {
     super(props);
     this.state = {
       repos: [],
-      user: props.match.params.user
+      user: props.match.params.user //prps.match.params.user necesita usar el parametro definido en el servicio
     }
   }
 
@@ -25,13 +25,13 @@ class Repos extends Component {
     return(
       <div className="container">
         <ul className="nav navbar-nav d-inline-flex">
-          <li class="nav-item"><h3>Repositorios</h3></li>
+          <li className="nav-item"><h3>Repositorios</h3></li>
           <li><a href="/">Regresar a usuarios</a></li>
         </ul>
         
         <ol className="list-group">
           {this.state.repos.map(repo => (
-            <li className="list-group-item list-group-item-action">
+            <li className="list-group-item list-group-item-action" key={repo.id}>
               {repo.name}
             </li>
           ))}
