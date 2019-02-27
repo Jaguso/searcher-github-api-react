@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { getRepos } from '../../services';
 import './Repos.css';
+import CardRepo from '../cards/CardRepo';
 
 class Repos extends Component {
 
@@ -21,6 +22,14 @@ class Repos extends Component {
     })
   }
 
+  // onChangeInput = (event) => {
+  //   const {name, value} = event.target
+
+  //   console.log("evento: ", event);
+  //   console.log("valores: ", name, value);
+  //   this.setState({[name]: value})
+  // }
+
   render() {
     return(
       <div className="container">
@@ -28,14 +37,24 @@ class Repos extends Component {
           <li className="nav-item"><h3>Repositorios</h3></li>
           <li><a href="/">Regresar a usuarios</a></li>
         </ul>
-        
-        <ol className="list-group">
+        {
+          this.state.repos.map(repo => (
+            <CardRepo
+              name={repo.name}
+              url={repo.html_url}
+              username={repo.owner.login}
+            />
+          ))
+        }
+        {/* <ol className="list-group">
           {this.state.repos.map(repo => (
             <li className="list-group-item list-group-item-action" key={repo.id}>
-              {repo.name}
+              <a href={repo.html_url}>
+                {repo.name}
+              </a>
             </li>
           ))}
-        </ol>
+        </ol> */}
       </div>
     );
   }

@@ -41,7 +41,7 @@ class Users extends Component {
 
     return(
       <div className="container">
-        <h3 className="my-">Usuarios</h3>
+        <h3>Usuarios</h3>
           <div className="form-grup">
             <label >
               Busca un usuario:
