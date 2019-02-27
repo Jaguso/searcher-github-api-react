@@ -58,6 +58,7 @@ class Users extends Component {
               <CardUser 
                 login={user.data.login}
                 html_url={user.data.html_url}
+                avatar={user.data.avatar_url}
               />
             ))}
           </div>
