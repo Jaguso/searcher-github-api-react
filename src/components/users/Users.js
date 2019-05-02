@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import CardUser from '../cards/CardUser';
 import { getUsers } from '../../services';
+import './Users.css';
 
 class Users extends Component {
 
@@ -53,7 +54,7 @@ class Users extends Component {
               />
             </label>
           </div>
-          <div className="row">
+          <div id="users" className="row">
             {filteredUsers.map(user => (
               <CardUser 
                 login={user.data.login}
