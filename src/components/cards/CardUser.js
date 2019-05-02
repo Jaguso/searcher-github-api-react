@@ -10,10 +10,10 @@ class CardUser extends Component {
           <div className="card-body">
             <img className="card-img-top" src={this.props.avatar} alt="avatar"/>
             <h5 className="card-title">
-              Username: <a href={this.props.html_url}>{this.props.login}</a>
+              Username: <a href={this.props.html_url} target="_blank">{this.props.login}</a>
             </h5>
-            <a href={this.props.html_url} className="card-link">Cuenta de github</a>
-            <a href={`/repos/${this.props.login}`} className="card-link">Ver repositorios</a>
+            <a href={this.props.html_url} target="_blank" className="card-link">Cuenta de github</a>
+            <a href={`/repos/${this.props.login}`} target="_blank" className="card-link">Ver repositorios</a>
           </div>
         </div>
        
