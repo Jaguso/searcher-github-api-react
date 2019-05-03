@@ -23,10 +23,7 @@ class Users extends Component {
   }
 
   onChangeInput = (event) => {
-    const {name, value} = event.target
-
-    console.log("evento: ", event);
-    console.log("valores: ", name, value);
+    const {name, value} = event.target;
     this.setState({[name]: value})
   }
 
@@ -54,14 +51,16 @@ class Users extends Component {
               />
             </label>
           </div>
-          <div id="users" className="row">
-            {filteredUsers.map(user => (
-              <CardUser 
-                login={user.data.login}
-                html_url={user.data.html_url}
-                avatar={user.data.avatar_url}
-              />
-            ))}
+          <div id="users-container">
+            <div id="users" className="row">
+              {filteredUsers.map(user => (
+                <CardUser 
+                  login={user.data.login}
+                  html_url={user.data.html_url}
+                  avatar={user.data.avatar_url}
+                />
+              ))}
+            </div>
           </div>
         
           
