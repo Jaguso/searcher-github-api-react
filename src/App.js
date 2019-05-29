@@ -7,7 +7,7 @@ import Routes from './Routes';
 class App extends Component {
   render() {
     return (
-      <div>
+      <div id="app">
         <Routes/>
       </div>
     );
